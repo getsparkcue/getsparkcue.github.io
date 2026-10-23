@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sparkcue TikTok Sign-in</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="bit.png">
+<style>
+:root{--bg:#0B1020;--surface:#121a33;--fg:#EEF1F8;--muted:#A3ADC6;--line:#26304d;--spark:#FFD23F;--ok:#3DDC97;--bad:#FF6B81;color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.05rem/1.6 'Segoe UI',system-ui,sans-serif;
+  padding:3rem max(16px,env(safe-area-inset-left,0px)) 3rem max(16px,env(safe-area-inset-right,0px))}
+main{max-width:34rem;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
+h1{margin:0;font-size:1.6rem}
+p{margin:0;color:var(--muted)}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:.7rem}
+code{font:600 .95rem/1.4 ui-monospace,Menlo,Consolas,monospace;word-break:break-all;user-select:all;color:var(--spark)}
+button{align-self:flex-start;background:var(--spark);color:#0B1020;border:0;border-radius:999px;padding:.55rem 1.2rem;font-weight:700;font-size:1rem;cursor:pointer}
+button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.bad{color:var(--bad)}
+</style>
+</head>
+<body>
+<main>
+  <h1>Sparkcue · TikTok</h1>
+  <div id="ok" class="box" hidden>
+    <p>Send this message to the Sparkcue bot in Telegram to finish connecting TikTok:</p>
+    <code id="cmd"></code>
+    <button id="copy" type="button">Copy</button>
+  </div>
+  <p id="err" class="bad" hidden></p>
+  <p id="none" hidden>This page finishes the TikTok sign-in for the Sparkcue bot. Start it by sending /tiktok to the bot.</p>
+</main>
+<script>
+const q=new URLSearchParams(location.search), code=q.get('code'), err=q.get('error_description')||q.get('error');
+if(code){const t='/tiktok '+code;document.getElementById('cmd').textContent=t;document.getElementById('ok').hidden=false;
+  document.getElementById('copy').addEventListener('click',e=>{navigator.clipboard.writeText(t).then(()=>e.target.textContent='Copied',
+    ()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('cmd'));const s=getSelection();s.removeAllRanges();s.addRange(r);});});}
+else if(err){const el=document.getElementById('err');el.textContent='TikTok sign-in failed: '+err;el.hidden=false;}
+else document.getElementById('none').hidden=false;
+</script>
+</body>
+</html>
