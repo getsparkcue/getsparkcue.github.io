@@ -17,8 +17,9 @@ img{width:180px;height:180px;border-radius:50%;box-shadow:0 0 60px rgba(255,210,
 h1{font:800 clamp(2.4rem,8vw,3.6rem)/1 var(--display);margin:0}
 h1 span{color:var(--spark)}
 p{margin:0;color:var(--muted);max-width:32rem}
-.links{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center}
-.links a{color:var(--fg);text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:.55rem 1.1rem;font-weight:600}
+.follow{color:var(--spark);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:.85rem;margin-top:.4rem}
+.links{display:flex;flex-direction:column;gap:.7rem;width:100%;max-width:22rem}
+.links a{color:var(--fg);text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:14px;padding:.85rem 1.1rem;font-weight:600;font-size:1.05rem}
 .links a:hover,.links a:focus-visible{border-color:var(--spark);outline:none}
 footer{margin-top:2rem;font-size:.9rem;color:var(--muted)}
 footer a{color:var(--cyan)}
@@ -29,10 +30,12 @@ footer a{color:var(--cyan)}
   <img src="bit.png" alt="Bit, the Sparkcue robot">
   <h1>Spark<span>cue</span></h1>
   <p>One AI trick a day, explained in under a minute by Bit the robot. Practical how-tos for ChatGPT, Claude, Gemini and the newest AI tools.</p>
+  <p class="follow">Follow Bit everywhere</p>
   <div class="links">
     <a href="https://www.instagram.com/getsparkcue/">Instagram</a>
-    <a href="https://www.facebook.com/profile.php?id=1486067621257291">Facebook</a>
     <a href="https://www.tiktok.com/@getsparkcue">TikTok</a>
+    <a href="https://www.youtube.com/@getsparkcue">YouTube</a>
+    <a href="https://www.facebook.com/profile.php?id=1486067621257291">Facebook</a>
   </div>
   <footer>Visuals and character made with AI · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Service</a> · <a href="privacy.html#deletion">Data deletion</a></footer>
 </main>
