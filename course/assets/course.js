@@ -63,4 +63,21 @@
         .catch(function () { msg.textContent = 'Something went wrong. Please try again in a minute.'; btn.disabled = false; });
     });
   });
+  // slide deck: tap / swipe / arrow keys, story-style progress bars
+  document.querySelectorAll('.deck').forEach(function (d) {
+    var imgs = d.querySelectorAll('img'), bars = d.querySelectorAll('.bars i'), cnt = d.querySelector('.count span'), i = 0;
+    function show(k) {
+      i = Math.max(0, Math.min(imgs.length - 1, k));
+      imgs.forEach(function (im, j) { im.hidden = j !== i; });
+      bars.forEach(function (b, j) { b.classList.toggle('on', j <= i); });
+      if (cnt) cnt.textContent = i + 1;
+    }
+    d.querySelector('.next').addEventListener('click', function () { show(i + 1); });
+    d.querySelector('.prev').addEventListener('click', function () { show(i - 1); });
+    d.addEventListener('keydown', function (e) { if (e.key === 'ArrowRight') show(i + 1); if (e.key === 'ArrowLeft') show(i - 1); });
+    var x0 = null;
+    d.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    d.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) show(i + (dx < 0 ? 1 : -1)); x0 = null; });
+    show(0);
+  });
 })();
