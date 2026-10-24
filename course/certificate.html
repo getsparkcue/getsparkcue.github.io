@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Certificate · Sparkcue AI Starter Kit</title>
+<meta name="description" content="You finished the Sparkcue AI Starter Kit. Make your certificate and share it.">
+<link rel="icon" href="../bit.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:wght@400;600&display=swap">
+<link rel="stylesheet" href="assets/course.css">
+<style>
+canvas{width:100%;max-width:20rem;display:block;margin:1rem auto;border-radius:18px;border:1px solid var(--line)}
+.row{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center}
+.row input{flex:1 1 14rem;min-width:0;border:1px solid var(--line);background:#0a0f1e;color:var(--fg);border-radius:12px;padding:.65rem .9rem;font:400 1rem var(--body)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><img src="../bit.png" alt=""><a href="../">Spark<span>cue</span></a><span class="crumb"><a href="./" style="font:inherit;color:inherit">AI Starter Kit</a></span></div>
+  <span class="pill">You did it</span>
+  <h1>Your <em>certificate</em></h1>
+  <p class="muted">Type your name, download it, and share it in your Story. Tag <b>@getsparkcue</b> and Bit will cheer for you.</p>
+  <div class="row"><input id="name" maxlength="32" placeholder="Your name" autocomplete="name"><button class="btn primary" id="dl">Download</button></div>
+  <canvas id="c" width="1080" height="1920" aria-label="Certificate preview"></canvas>
+  <footer><a href="./">Back to the course</a></footer>
+</div>
+<script>
+(function () {
+  var c = document.getElementById('c'), x = c.getContext('2d'), inp = document.getElementById('name');
+  var bit = new Image(); bit.src = '../bit.png'; bit.onload = draw;
+  var date = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+  function draw() {
+    var g = x.createRadialGradient(540, 600, 80, 540, 900, 1500);
+    g.addColorStop(0, '#1E2F63'); g.addColorStop(.55, '#101833'); g.addColorStop(1, '#080B15');
+    x.fillStyle = g; x.fillRect(0, 0, 1080, 1920);
+    x.strokeStyle = 'rgba(255,210,63,.6)'; x.lineWidth = 6; x.strokeRect(60, 60, 960, 1800);
+    x.textAlign = 'center';
+    x.fillStyle = '#A3ADC6'; x.font = '600 44px "Source Sans 3", sans-serif'; x.fillText('SPARKCUE · AI STARTER KIT', 540, 220);
+    if (bit.complete && bit.naturalWidth) { x.save(); x.beginPath(); x.arc(540, 560, 230, 0, 6.283); x.clip(); x.drawImage(bit, 310, 330, 460, 460); x.restore(); }
+    x.fillStyle = '#FFD23F'; x.font = '800 120px "Bricolage Grotesque", sans-serif'; x.fillText('CERTIFIED', 540, 1000);
+    x.fillStyle = '#EEF1F8'; x.font = '800 92px "Bricolage Grotesque", sans-serif'; x.fillText('AI STARTER', 540, 1110);
+    var name = (inp.value || 'Your Name').trim();
+    var size = Math.min(110, Math.floor(1700 / Math.max(6, name.length)));
+    x.fillStyle = '#4DE8FF'; x.font = '800 ' + size + 'px "Bricolage Grotesque", sans-serif'; x.fillText(name, 540, 1330);
+    x.fillStyle = '#A3ADC6'; x.font = '400 48px "Source Sans 3", sans-serif';
+    x.fillText('finished 7 days of practical AI', 540, 1430); x.fillText(date, 540, 1500);
+    x.fillStyle = '#FFD23F'; x.font = '800 64px "Bricolage Grotesque", sans-serif'; x.fillText('@getsparkcue', 540, 1740);
+  }
+  inp.addEventListener('input', draw);
+  document.fonts && document.fonts.ready.then(draw); draw();
+  document.getElementById('dl').addEventListener('click', function () {
+    draw(); var a = document.createElement('a'); a.download = 'sparkcue-certificate.png'; a.href = c.toDataURL('image/png'); a.click();
+  });
+})();
+</script>
+</body>
+</html>
