@@ -59,7 +59,7 @@
       var data = new FormData(f);
       fetch('https://app.kit.com/forms/' + f.getAttribute('data-kit') + '/subscriptions', { method: 'POST', body: data, headers: { Accept: 'application/json' } })
         .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json().catch(function () { return {}; }); })
-        .then(function () { msg.innerHTML = '<span class="ok">You\'re in! Check your inbox to confirm, then Lesson 1 is on its way.</span>'; f.classList.add('hidden'); s.email = true; save(s); })
+        .then(function () { msg.innerHTML = '<span class="ok">You\'re in! Confirm the email Kit just sent you, and Bit\'s lessons start landing tomorrow morning.</span>'; f.classList.add('hidden'); s.email = true; save(s); })
         .catch(function () { msg.textContent = 'Something went wrong. Please try again in a minute.'; btn.disabled = false; });
     });
   });
