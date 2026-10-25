@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sparkcue TikTok Sign-in</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="bit.png">
+<meta name="referrer" content="no-referrer">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
 :root{--bg:#0B1020;--surface:#121a33;--fg:#EEF1F8;--muted:#A3ADC6;--line:#26304d;--spark:#FFD23F;--ok:#3DDC97;--bad:#FF6B81;color-scheme:dark}
 body{margin:0;background:var(--bg);color:var(--fg);font:400 1.05rem/1.6 'Segoe UI',system-ui,sans-serif;
@@ -33,6 +34,7 @@ button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
 </main>
 <script>
 const q=new URLSearchParams(location.search), code=q.get('code'), err=q.get('error_description')||q.get('error');
+history.replaceState(null,'',location.pathname);   // the one-time code doesn't stay in the address bar or history
 if(code){const t='/tiktok '+code;document.getElementById('cmd').textContent=t;document.getElementById('ok').hidden=false;
   document.getElementById('copy').addEventListener('click',e=>{navigator.clipboard.writeText(t).then(()=>e.target.textContent='Copied',
     ()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('cmd'));const s=getSelection();s.removeAllRanges();s.addRange(r);});});}

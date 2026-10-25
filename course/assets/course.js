@@ -34,9 +34,14 @@
   }
   if (doneBtn && n) {
     paintDone();
+    var live = document.createElement('p'); live.className = 'note'; live.setAttribute('aria-live', 'polite');
+    doneBtn.parentNode.appendChild(live);
     doneBtn.addEventListener('click', function () {
-      if (s.done.indexOf(n) < 0) s.done.push(n); else s.done = s.done.filter(function (x) { return x !== n; });
+      var was = s.done.indexOf(n) >= 0;
+      if (!was) s.done.push(n); else s.done = s.done.filter(function (x) { return x !== n; });
       save(s); paintDone();
+      live.textContent = was ? '' : (n >= total ? 'You finished the course! Grab your certificate from the course page.'
+        : 'Nice work! Day ' + (n + 1) + ' unlocks tomorrow' + (s.email ? ', and it lands in your inbox.' : '.'));
     });
   }
 
@@ -44,7 +49,7 @@
   document.querySelectorAll('[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
       var txt = document.getElementById(b.getAttribute('data-copy')).innerText;
-      function ok() { var t = b.textContent; b.textContent = 'Copied ✓'; setTimeout(function () { b.textContent = t; }, 1500); }
+      function ok() { var t = b.textContent; b.textContent = 'Copied ✓'; b.setAttribute('aria-live', 'polite'); setTimeout(function () { b.textContent = t; }, 1500); }
       if (navigator.clipboard) navigator.clipboard.writeText(txt).then(ok, function () {});
       else { var r = document.createRange(); r.selectNode(document.getElementById(b.getAttribute('data-copy'))); getSelection().removeAllRanges(); getSelection().addRange(r); document.execCommand('copy'); ok(); }
     });
@@ -55,6 +60,7 @@
     f.addEventListener('submit', function (e) {
       e.preventDefault();
       var msg = f.parentNode.querySelector('.note'), btn = f.querySelector('button');
+      msg.setAttribute('aria-live', 'polite');
       btn.disabled = true; msg.textContent = 'Sending…';
       var data = new FormData(f);
       fetch('https://app.kit.com/forms/' + f.getAttribute('data-kit') + '/subscriptions', { method: 'POST', body: data, headers: { Accept: 'application/json' } })

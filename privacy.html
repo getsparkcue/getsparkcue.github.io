@@ -3,141 +3,183 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="bit.png">
-<title>Sparkcue Privacy Policy</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:wght@400;600&display=swap">
+<title>Privacy Policy · Sparkcue</title>
+<meta name="description" content="What Sparkcue collects, why, and how to delete it.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-/* Layout: a single readable column, a compact brand header, sections as a numbered legal document */
-:root{
-  --bg:#F6F7FB; --surface:#FFFFFF; --fg:#151B2E; --muted:#56607A; --line:#DCE1EC;
-  --accent:#B88A00; --spark:#FFD23F; --cyan:#0A8FA6;
-  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
-  --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0B1020; --surface:#121a33; --fg:#EEF1F8; --muted:#A3ADC6; --line:#26304d;
-  --accent:#FFD23F; --spark:#FFD23F; --cyan:#4DE8FF; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0B1020; --surface:#121a33; --fg:#EEF1F8; --muted:#A3ADC6; --line:#26304d;
-  --accent:#FFD23F; --spark:#FFD23F; --cyan:#4DE8FF; color-scheme:dark}
-body{background:var(--bg);color:var(--fg);font:400 1.06rem/1.65 var(--body);
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 4rem}
+@font-face{font-family:'Inter Display';font-weight:400;font-display:swap;src:url('/fonts/inter-display-400.woff') format('woff')}
+@font-face{font-family:'Inter Display';font-weight:600;font-display:swap;src:url('/fonts/inter-display-600.woff') format('woff')}
+@font-face{font-family:'Inter Display';font-weight:700 900;font-display:swap;src:url('/fonts/inter-display-800.woff') format('woff')}
+:root{--bg:#0B1020;--surface:#121A33;--fg:#EEF1F8;--muted:#A3ADC6;--line:#26304D;--spark:#FFD23F;--cyan:#4DE8FF;
+  --font:'Inter Display','Segoe UI',system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.06rem/1.65 var(--font);
+  padding:2rem max(16px,env(safe-area-inset-left,0px)) 4rem max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:44rem;margin:0 auto;display:flex;flex-direction:column;gap:2rem}
+.top{display:flex;align-items:center;gap:.8rem}
+.top img{width:44px;height:44px;border-radius:50%;box-shadow:0 0 24px rgba(255,210,63,.25)}
+.top a{color:var(--fg);text-decoration:none;font:800 1.2rem var(--font)}
+.top a span{color:var(--spark)}
 header{display:flex;flex-direction:column;gap:.6rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:.6rem;font:800 1.05rem var(--display);letter-spacing:.01em}
-.dot{width:.8rem;height:.8rem;border-radius:50%;background:var(--spark);box-shadow:0 0 14px var(--spark)}
-h1{font:800 clamp(2rem,6vw,2.8rem)/1.05 var(--display);margin:0;text-wrap:balance}
+h1{font:800 clamp(2rem,6vw,2.8rem)/1.05 var(--font);margin:0;letter-spacing:-.01em}
 .meta{color:var(--muted);font-size:.95rem;margin:0}
-section{display:flex;flex-direction:column;gap:.5rem;scroll-margin-top:1rem}
-h2{font:700 1.25rem/1.25 var(--display);margin:0;text-wrap:balance;display:flex;gap:.6rem;align-items:baseline}
-h2 .n{font-variant-numeric:tabular-nums;color:var(--accent);font-size:1rem;min-width:1.4rem}
+section{display:flex;flex-direction:column;gap:.55rem;scroll-margin-top:1rem}
+h2{font:800 1.25rem/1.25 var(--font);margin:0;display:flex;gap:.6rem;align-items:baseline}
+h2 .n{font-variant-numeric:tabular-nums;color:var(--spark);font-size:1rem;min-width:1.4rem}
 p,ul{margin:0}
-ul{padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem}
+ul{padding-left:1.2rem;display:flex;flex-direction:column;gap:.35rem}
 b{font-weight:600}
+code{font:600 .92em var(--font);color:var(--spark)}
 .box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.5rem}
 .mail{font-weight:600;color:var(--cyan);word-break:break-all;user-select:all}
 a{color:var(--cyan)}
-a:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;vertical-align:top;padding:.5rem .4rem;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
 footer{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:1.2rem}
+footer a{display:inline-block;padding:.4rem .2rem}
+@media (max-width:520px){table,thead,tbody,tr,th,td{display:block}thead{display:none}td{border:0;padding:.15rem 0}tr{border-bottom:1px solid var(--line);padding:.5rem 0}td:first-child{font-weight:600}}
 </style>
-<style>body{margin:0}</style>
 </head>
 <body>
-
-
 <div class="wrap">
+  <div class="top"><img src="brand/bit-88.webp" width="44" height="44" alt=""><a href="./">Spark<span>cue</span></a></div>
   <header>
-    <div class="brand"><span class="dot" aria-hidden="true"></span>Sparkcue · @getsparkcue</div>
     <h1>Privacy Policy</h1>
-    <p class="meta">Effective October 24, 2026</p>
+    <p class="meta">Effective October 25, 2026</p>
+    <p>Sparkcue (@getsparkcue) publishes short AI tips presented by Bit, an AI-made robot character, on Instagram, Facebook,
+    YouTube and TikTok, and runs a free email course, a newsletter and a Discord community. This policy explains what
+    information we handle, why, and what you can do about it.</p>
+    <p>Sparkcue is run by its founder, an individual based in Israel, who is the controller of the information described
+    here ("we", "us"). Contact: <span class="mail">sparkcue1@gmail.com</span>.</p>
   </header>
-
-  <p>Sparkcue is a social media channel that publishes short AI tips, presented by Bit, an animated robot.
-  This policy explains what information the Sparkcue app handles when it publishes our posts and talks with our audience
-  on Instagram, Facebook, YouTube and TikTok.</p>
 
   <section id="what">
     <h2><span class="n">1</span>What we collect</h2>
-    <p>The Sparkcue app publishes content to accounts we own. It does not ask you to sign in and does not collect information
-    from your device. When you interact with our posts, we may process:</p>
-    <ul>
-      <li><b>Comments</b> on our posts, with your public username, so we can read and reply to them.</li>
-      <li><b>Messages</b> you send to our accounts, so we can answer you, for example by sending a requested guide.</li>
-      <li><b>Aggregate statistics</b> the platforms provide about our own posts, such as views and likes.</li>
-    </ul>
-    <p>We do not collect passwords, payment details, contact lists or location.</p>
+    <table>
+      <thead><tr><th>Where</th><th>What</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Email course and Bit's Weekly</td><td>Your email address, the date you joined and which course day you are on.</td><td>To send the lessons and the newsletter you asked for.</td></tr>
+        <tr><td>Discord (Sparkcue Lab)</td><td>Questions you post in #ask-bit. The text is sent to Anthropic so Bit can answer. We keep the question text, without your username, for content ideas, and may quote a question anonymously in Bit's Weekly. Messages removed as spam are forwarded with your Discord username to our private moderation channel.</td><td>To answer you and keep the community safe.</td></tr>
+        <tr><td>Comments and messages on Instagram, Facebook, YouTube and TikTok</td><td>Your public username, account ID and the text, so we can reply. If you ask for a guide by commenting a keyword, we may check whether your account follows ours, only to send the guide. We don't keep that result.</td><td>To reply to you.</td></tr>
+        <tr><td>Course progress on this website</td><td>Saved only in your own browser (localStorage key <code>sparkcue-course</code>: your start date, finished lessons and whether you signed up). It never leaves your device.</td><td>To show your progress.</td></tr>
+        <tr><td>Website hosting</td><td>Our host, GitHub Pages, records IP addresses and browser details in server logs for security. We don't see or use these logs.</td><td>To run the website.</td></tr>
+        <tr><td>Platform statistics</td><td>Aggregate numbers about our own posts, such as views and likes.</td><td>To learn which topics help.</td></tr>
+      </tbody>
+    </table>
+    <p>We don't use cookies, analytics or ad trackers on this website, and we don't load fonts or scripts from third parties.
+    We never ask for passwords, payment details, contact lists or location.</p>
   </section>
 
   <section id="use">
-    <h2><span class="n">2</span>How we use it</h2>
+    <h2><span class="n">2</span>How we use it, and our legal bases</h2>
     <ul>
-      <li>To reply to comments and messages.</li>
-      <li>To understand which topics our audience finds useful.</li>
+      <li><b>Emails:</b> your consent, given when you sign up and confirm. You can withdraw it at any time with the
+      unsubscribe link in every email.</li>
+      <li><b>Replies on Discord and social platforms:</b> our legitimate interest in answering the questions you send us.</li>
+      <li><b>Security and moderation:</b> our legitimate interest in keeping the community and the website safe.</li>
     </ul>
-    <p>We do not sell personal information, use it for advertising profiles, or share it with data brokers.</p>
+    <p>We don't sell or "share" personal information (as defined by California law), build advertising profiles, or pass
+    data to data brokers. Our website doesn't track you across sites, so it doesn't respond differently to Do Not Track signals.</p>
   </section>
 
   <section id="services">
     <h2><span class="n">3</span>Services we rely on</h2>
-    <p>Our content and replies pass through these providers, each under its own privacy policy:
-    Meta (Instagram and Facebook), Google (YouTube), TikTok, Anthropic (AI used to research and write posts and replies),
-    ElevenLabs (Bit's voice) and Telegram (our internal approval tool). When a reply is written with AI, the text of the
-    comment or message may be sent to Anthropic only to produce that reply.</p>
-    <p>Our app uses YouTube API Services to publish videos to our own channel. By watching our content on YouTube you are
-    subject to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>, and Google's handling of data is
-    described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>. Access our app has to our own
-    Google account can be revoked at <a href="https://myaccount.google.com/connections">Google security settings</a>.</p>
+    <p>These providers process information for us, each under its own privacy policy:</p>
+    <ul>
+      <li><b>Kit</b> (email delivery and subscriber list, USA)</li>
+      <li><b>Anthropic</b> (AI that writes Bit's answers and helps research posts, USA)</li>
+      <li><b>Discord</b> (community, USA) · <b>GitHub</b> (website hosting, USA) · <b>Telegram</b> (our internal approval and moderation tool)</li>
+      <li><b>ElevenLabs</b> (Bit's voice; receives only our scripts, no personal data)</li>
+      <li><b>Meta</b> (Instagram, Facebook), <b>Google</b> (YouTube) and <b>TikTok</b>, where our content is published</li>
+    </ul>
+    <p>Some of these providers are in the USA. Where the GDPR applies, transfers rely on the EU-US Data Privacy Framework or
+    the provider's Standard Contractual Clauses.</p>
+  </section>
+
+  <section id="google">
+    <h2><span class="n">4</span>YouTube and Google data</h2>
+    <p>Our app uses YouTube API Services, and accesses only our own YouTube channel (scope <code>youtube</code>) to upload our
+    videos and read the channel name. It does not access viewers' Google data. Sparkcue's use and transfer of information
+    received from Google APIs adheres to the
+    <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services User Data Policy</a>,
+    including the Limited Use requirements. The access token is stored only on our private server and deleted when we
+    disconnect.</p>
+    <p>By watching our content on YouTube you are subject to the <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>;
+    Google's handling of data is described in the <a href="https://policies.google.com/privacy">Google Privacy Policy</a>.
+    Access to a Google account can be revoked at <a href="https://myaccount.google.com/permissions">Google security settings</a>.</p>
+  </section>
+
+  <section id="tiktok">
+    <h2><span class="n">5</span>TikTok</h2>
+    <p>With TikTok Login Kit and the Content Posting API, our app signs in only to the Sparkcue TikTok account, to upload our
+    own videos and read that account's basic profile (open ID, display name, avatar). The access token stays on our private
+    server, is used only to post our own content, and is deleted when we disconnect. We don't collect data about TikTok
+    viewers beyond public comments on our posts. Access can be revoked in TikTok under
+    Settings › Security › Manage app permissions.</p>
   </section>
 
   <section id="security">
-    <h2><span class="n">4</span>How we protect it</h2>
+    <h2><span class="n">6</span>How we protect it</h2>
     <p>Access keys are stored only on our private server, readable only by the app, and never published or shared.
-    Connections to every platform use encrypted HTTPS. The app accepts instructions only from the Sparkcue owner.</p>
+    Connections to every service use encrypted HTTPS. The app accepts instructions only from the Sparkcue owner, and
+    nothing is published without the owner's approval.</p>
   </section>
 
   <section id="retention">
-    <h2><span class="n">5</span>How long we keep it</h2>
-    <p>Comment and message text processed by our app is kept for no more than 90 days, then deleted. Comments stay visible
-    on the platform until you or we remove them there.</p>
+    <h2><span class="n">7</span>How long we keep it</h2>
+    <ul>
+      <li>Comment, message and Discord question text: up to 90 days.</li>
+      <li>Email address and course day: until you unsubscribe; then removed from our records within 30 days. Kit may keep
+      a record that you unsubscribed so you are not emailed again.</li>
+      <li>Access tokens: until we disconnect the account.</li>
+    </ul>
+    <p>Comments stay visible on each platform until you or we remove them there.</p>
   </section>
 
   <section id="deletion">
-    <h2><span class="n">6</span>Deleting your data</h2>
+    <h2><span class="n">8</span>Deleting your data</h2>
     <div class="box">
-      <p>To ask us to delete any information our app holds about you, email us with your username and the platform
-      (Instagram, Facebook, YouTube or TikTok). We delete it within 30 days and confirm by reply.</p>
+      <p>To delete what we hold about you, email us with your username and where you used Sparkcue (Instagram, Facebook,
+      YouTube, TikTok, Discord or email). We delete it within 30 days and confirm by reply. On Instagram or Facebook you
+      can also send us a direct message with the word DELETE.</p>
       <p>Email: <span class="mail">sparkcue1@gmail.com</span></p>
-      <p>You can also delete your own comments at any time on the platform, and remove the Sparkcue app from your
-      Facebook settings under Apps and Websites if you connected it.</p>
     </div>
+    <p>You can also delete your own comments and Discord messages yourself at any time, and unsubscribe from emails with
+    the link at the bottom of every email.</p>
   </section>
 
   <section id="rights">
-    <h2><span class="n">7</span>Your rights</h2>
-    <p>Wherever you live, you can ask us what information our app holds about you, ask us to correct or delete it, or
-    object to how we use it. Email us (section 10) and we answer within 30 days. If you are in the EU or UK, we process
-    comments and messages based on our legitimate interest in replying to our audience, and you may also complain to your
-    local data protection authority.</p>
+    <h2><span class="n">9</span>Your rights</h2>
+    <p>Wherever you live, you can ask what information we hold about you, and ask us to correct it, delete it, or stop
+    using it. Email us and we answer within 30 days. Under Israel's Privacy Protection Law you have the right to review
+    and correct information about you, and you may complain to the Israeli Privacy Protection Authority. If you are in the
+    EU or UK, you may also complain to your local data protection authority.</p>
   </section>
 
   <section id="children">
-    <h2><span class="n">8</span>Children</h2>
-    <p>Sparkcue is not directed at children under 13, and we do not knowingly process their information.
-    If you believe a child has contacted us, email us and we will delete the information.</p>
+    <h2><span class="n">10</span>Children</h2>
+    <p>Sparkcue is for people 13 and older (16 in EU and UK countries where local law requires parental consent below that
+    age). Our email list and Discord are not for anyone younger. If we learn we have information from a child under 13,
+    we delete it.</p>
   </section>
 
   <section id="changes">
-    <h2><span class="n">9</span>Changes</h2>
-    <p>If this policy changes, we update it on this page and change the effective date above.</p>
+    <h2><span class="n">11</span>Changes</h2>
+    <p>If this policy changes, we update this page and the effective date above. Significant changes are announced in
+    Bit's Weekly.</p>
   </section>
 
   <section id="contact">
-    <h2><span class="n">10</span>Contact</h2>
+    <h2><span class="n">12</span>Contact</h2>
     <p>Questions about this policy: <span class="mail">sparkcue1@gmail.com</span></p>
   </section>
 
-  <footer>Sparkcue · Bit and all visuals are made with AI.</footer>
+  <footer>Sparkcue · Bit, his voice and the visuals are made with AI · <a href="./">Home</a> · <a href="terms.html">Terms of Service</a></footer>
 </div>
-
 </body>
 </html>

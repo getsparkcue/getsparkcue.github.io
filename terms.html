@@ -3,102 +3,134 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="icon" href="bit.png">
-<title>Sparkcue Terms of Service</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Source+Sans+3:wght@400;600&display=swap">
+<title>Terms of Service · Sparkcue</title>
+<meta name="description" content="The terms for Sparkcue content, the free course and the community.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
-/* Layout: a single readable column, a compact brand header, sections as a numbered legal document */
-:root{
-  --bg:#F6F7FB; --surface:#FFFFFF; --fg:#151B2E; --muted:#56607A; --line:#DCE1EC;
-  --accent:#B88A00; --spark:#FFD23F; --cyan:#0A8FA6;
-  --display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
-  --body:'Source Sans 3','Segoe UI',system-ui,sans-serif;
-}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0B1020; --surface:#121a33; --fg:#EEF1F8; --muted:#A3ADC6; --line:#26304d;
-  --accent:#FFD23F; --spark:#FFD23F; --cyan:#4DE8FF; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0B1020; --surface:#121a33; --fg:#EEF1F8; --muted:#A3ADC6; --line:#26304d;
-  --accent:#FFD23F; --spark:#FFD23F; --cyan:#4DE8FF; color-scheme:dark}
-body{background:var(--bg);color:var(--fg);font:400 1.06rem/1.65 var(--body);
-  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:2.5rem 4rem}
+@font-face{font-family:'Inter Display';font-weight:400;font-display:swap;src:url('/fonts/inter-display-400.woff') format('woff')}
+@font-face{font-family:'Inter Display';font-weight:600;font-display:swap;src:url('/fonts/inter-display-600.woff') format('woff')}
+@font-face{font-family:'Inter Display';font-weight:700 900;font-display:swap;src:url('/fonts/inter-display-800.woff') format('woff')}
+:root{--bg:#0B1020;--surface:#121A33;--fg:#EEF1F8;--muted:#A3ADC6;--line:#26304D;--spark:#FFD23F;--cyan:#4DE8FF;
+  --font:'Inter Display','Segoe UI',system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1.06rem/1.65 var(--font);
+  padding:2rem max(16px,env(safe-area-inset-left,0px)) 4rem max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:44rem;margin:0 auto;display:flex;flex-direction:column;gap:2rem}
+.top{display:flex;align-items:center;gap:.8rem}
+.top img{width:44px;height:44px;border-radius:50%;box-shadow:0 0 24px rgba(255,210,63,.25)}
+.top a{color:var(--fg);text-decoration:none;font:800 1.2rem var(--font)}
+.top a span{color:var(--spark)}
 header{display:flex;flex-direction:column;gap:.6rem;padding-bottom:1.6rem;border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:.6rem;font:800 1.05rem var(--display);letter-spacing:.01em}
-.dot{width:.8rem;height:.8rem;border-radius:50%;background:var(--spark);box-shadow:0 0 14px var(--spark)}
-h1{font:800 clamp(2rem,6vw,2.8rem)/1.05 var(--display);margin:0;text-wrap:balance}
+h1{font:800 clamp(2rem,6vw,2.8rem)/1.05 var(--font);margin:0;letter-spacing:-.01em}
 .meta{color:var(--muted);font-size:.95rem;margin:0}
-section{display:flex;flex-direction:column;gap:.5rem;scroll-margin-top:1rem}
-h2{font:700 1.25rem/1.25 var(--display);margin:0;text-wrap:balance;display:flex;gap:.6rem;align-items:baseline}
-h2 .n{font-variant-numeric:tabular-nums;color:var(--accent);font-size:1rem;min-width:1.4rem}
+section{display:flex;flex-direction:column;gap:.55rem;scroll-margin-top:1rem}
+h2{font:800 1.25rem/1.25 var(--font);margin:0;display:flex;gap:.6rem;align-items:baseline}
+h2 .n{font-variant-numeric:tabular-nums;color:var(--spark);font-size:1rem;min-width:1.4rem}
 p,ul{margin:0}
-ul{padding-left:1.2rem;display:flex;flex-direction:column;gap:.3rem}
+ul{padding-left:1.2rem;display:flex;flex-direction:column;gap:.35rem}
 b{font-weight:600}
+code{font:600 .92em var(--font);color:var(--spark)}
 .box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.5rem}
 .mail{font-weight:600;color:var(--cyan);word-break:break-all;user-select:all}
 a{color:var(--cyan)}
-a:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+a:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;vertical-align:top;padding:.5rem .4rem;border-bottom:1px solid var(--line)}
+th{color:var(--muted);font-weight:600}
 footer{color:var(--muted);font-size:.9rem;border-top:1px solid var(--line);padding-top:1.2rem}
+footer a{display:inline-block;padding:.4rem .2rem}
+@media (max-width:520px){table,thead,tbody,tr,th,td{display:block}thead{display:none}td{border:0;padding:.15rem 0}tr{border-bottom:1px solid var(--line);padding:.5rem 0}td:first-child{font-weight:600}}
 </style>
-<style>body{margin:0}</style>
 </head>
 <body>
-
-
 <div class="wrap">
+  <div class="top"><img src="brand/bit-88.webp" width="44" height="44" alt=""><a href="./">Spark<span>cue</span></a></div>
   <header>
-    <div class="brand"><span class="dot" aria-hidden="true"></span>Sparkcue · @getsparkcue</div>
     <h1>Terms of Service</h1>
-    <p class="meta">Effective October 23, 2026</p>
+    <p class="meta">Effective October 25, 2026</p>
+    <p>These terms apply to Sparkcue's content (posts, videos, slides, the website, the free AI Starter Kit course and
+    emails), the Sparkcue Lab Discord community, and the Sparkcue app that publishes our posts to our own accounts on
+    Instagram, Facebook, YouTube and TikTok. By using any of them you agree to these terms.</p>
   </header>
 
-  <p>These terms apply to Sparkcue's content and to the Sparkcue app, which publishes our posts to our own accounts on
-  Instagram, Facebook, YouTube and TikTok. By watching our content or using the app you agree to these terms.</p>
+  <section id="who">
+    <h2><span class="n">1</span>Who we are</h2>
+    <p>Sparkcue is run by its founder, an individual based in Israel ("we", "us"). Contact:
+    <span class="mail">sparkcue1@gmail.com</span>. You must be at least 13 to join our email list or community
+    (16 in EU and UK countries that require parental consent below that age).</p>
+  </section>
 
   <section id="service">
-    <h2><span class="n">1</span>What Sparkcue is</h2>
-    <p>Sparkcue publishes short educational tips about AI tools. Our videos, images and the character Bit are made with AI.
-    The Sparkcue app is used only by the Sparkcue team to publish to accounts we own. It is not offered to the public.</p>
+    <h2><span class="n">2</span>What Sparkcue is</h2>
+    <p>Sparkcue publishes short educational tips about AI tools. The Sparkcue app is used only by the Sparkcue team to
+    publish to accounts we own; it is not offered to the public.</p>
   </section>
 
   <section id="info">
-    <h2><span class="n">2</span>Information only</h2>
-    <p>Our content is general information, not professional advice. AI tools change often, so features, prices and
-    availability may differ from what a post shows. Check the provider's official site before relying on it.</p>
+    <h2><span class="n">3</span>AI-made content, information only</h2>
+    <p>Our posts, lessons and emails are created with the help of AI and reviewed by a person before they are published.
+    Bit's answers in Discord are automatic AI replies and can be wrong. Bit, his voice and our visuals are AI-generated.</p>
+    <p>All of it is general information, not professional, legal, financial, medical or security advice. AI tools change
+    often, so features, prices and availability may differ from what a post shows; check the provider's official site
+    before relying on it. Don't paste passwords or sensitive personal, health or client data into any AI tool, Bit included.</p>
   </section>
 
   <section id="ip">
-    <h2><span class="n">3</span>Our content</h2>
-    <p>Sparkcue's videos, slides, the name Sparkcue and the character Bit belong to Sparkcue. You may share our posts using
-    each platform's share features. Please do not re-upload them as your own. Product names mentioned in our posts belong
-    to their owners, and Sparkcue is not affiliated with them unless a post says so.</p>
+    <h2><span class="n">4</span>Our content and trademarks</h2>
+    <p>Sparkcue's videos, slides, lessons, the name Sparkcue and the character Bit belong to Sparkcue. You may share our
+    posts with each platform's share features and use the prompts from our lessons for yourself. Please don't re-upload
+    our content as your own.</p>
+    <p>ChatGPT, Claude, Gemini and other product names are trademarks of their owners. We use them only to identify the
+    products we talk about. Sparkcue is independent and not endorsed by or affiliated with them unless a post clearly says so.</p>
   </section>
 
   <section id="links">
-    <h2><span class="n">4</span>Links and partners</h2>
-    <p>Some posts may include links to third-party tools, including affiliate links that pay us a commission at no extra
-    cost to you. We mark sponsored content as required by each platform. We are not responsible for third-party services.</p>
+    <h2><span class="n">5</span>Links, affiliates and partners</h2>
+    <p>Some pages, posts and emails include links to third-party tools, including affiliate links that may pay us a
+    commission at no extra cost to you. When a post, page or email contains an affiliate link or a paid partnership, we
+    say so clearly in that post, page or email itself (for example "affiliate link" or "#ad"), and we use each platform's
+    paid-partnership label for brand deals. We are not responsible for third-party services.</p>
+  </section>
+
+  <section id="certificate">
+    <h2><span class="n">6</span>Course certificate</h2>
+    <p>The AI Starter Kit completion certificate is a fun way to celebrate finishing the free course. It is not an
+    accredited qualification and doesn't certify any professional skill.</p>
   </section>
 
   <section id="conduct">
-    <h2><span class="n">5</span>Comments and messages</h2>
-    <p>Be respectful in our comments and messages. We may hide or remove content that is abusive, spam or unlawful.
-    How we handle your information is described in our <a href="privacy.html">Privacy Policy</a>.</p>
+    <h2><span class="n">7</span>Comments, messages and Discord</h2>
+    <p>Be respectful. No spam, self-promotion, harassment, unlawful content or sharing other people's personal data. We
+    may hide or remove content and remove members who break these rules. Discord's own Terms of Service also apply in
+    Sparkcue Lab.</p>
+    <p>You keep ownership of what you post. By posting in Sparkcue Lab or commenting on our posts, you let us display it
+    and quote your question anonymously in our content and emails. How we handle your information is described in our
+    <a href="privacy.html">Privacy Policy</a>.</p>
   </section>
 
   <section id="liability">
-    <h2><span class="n">6</span>Liability</h2>
-    <p>Sparkcue is provided as is. To the extent the law allows, Sparkcue is not liable for losses that come from using
-    our content or the tools it mentions.</p>
+    <h2><span class="n">8</span>Liability</h2>
+    <p>Sparkcue is provided free and "as is". To the extent the law allows, we are not liable for losses that come from
+    using our content or the tools it mentions. Nothing in these terms limits rights you have under consumer law that
+    cannot be waived.</p>
+  </section>
+
+  <section id="law">
+    <h2><span class="n">9</span>Governing law</h2>
+    <p>These terms are governed by the laws of the State of Israel, and the competent courts of Tel Aviv-Yafo have
+    exclusive jurisdiction, except where the consumer law of your country gives you the right to bring a claim where you live.</p>
   </section>
 
   <section id="changes">
-    <h2><span class="n">7</span>Changes and contact</h2>
+    <h2><span class="n">10</span>Changes and contact</h2>
     <p>We may update these terms on this page and change the effective date above. Questions:
     <span class="mail">sparkcue1@gmail.com</span></p>
   </section>
 
-  <footer>Sparkcue · <a href="./">Home</a> · <a href="privacy.html">Privacy Policy</a></footer>
+  <footer>Sparkcue · Bit, his voice and the visuals are made with AI · <a href="./">Home</a> · <a href="privacy.html">Privacy Policy</a></footer>
 </div>
 </body>
 </html>
